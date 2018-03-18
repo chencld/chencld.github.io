@@ -36,9 +36,10 @@ h6, .h6 {
  */
 
 .blog-masthead {
-  background-color: #428bca;
+  background:url('../images/headbg.jpg') 0 -60px no-repeat;
   -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
           box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+          height: 50px;
 }
 
 /* Nav links */
@@ -79,13 +80,12 @@ h6, .h6 {
  */
 
 .blog-header {
-  padding-top: 20px;
   padding-bottom: 20px;
 }
 .blog-title {
   margin-top: 30px;
   margin-bottom: 0;
-  font-size: 60px;
+  font-size: 50px;
   font-weight: normal;
 }
 .blog-description {
@@ -142,7 +142,7 @@ h6, .h6 {
 }
 .blog-post-title {
   margin-bottom: 5px;
-  font-size: 40px;
+  font-size: 30px;
 }
 .blog-post-meta {
   margin-bottom: 20px;

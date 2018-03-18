@@ -33,22 +33,13 @@
     .imgs{
       overflow: hidden;
     }
+    .imgs img{margin-right: 4px;}
   </style>
 </head>
 
 <body>
 
-<div class="blog-masthead" style="display:none;">
-  <div class="container">
-    <nav class="blog-nav">
-      <a class="blog-nav-item active" href="page1.html">Home</a>
-      <a class="blog-nav-item" href="#">New features</a>
-      <a class="blog-nav-item" href="#">Press</a>
-      <a class="blog-nav-item" href="#">New hires</a>
-      <a class="blog-nav-item" href="#">About</a>
-    </nav>
-  </div>
-</div>
+<div class="blog-masthead"></div>
 
 <div class="container">
 
@@ -65,10 +56,24 @@
         <h2 class="blog-post-title">Weex的三端统一？</h2>
         <p class="blog-post-meta">March 18, 2018 by <a href="javascript:;">cld</a></p>
         <p>Weex可能最吸引人的就是他的三端统一，哇，写一遍代码，就能运行在三端，想想就好激动。我一个入坑半年的人，终于忍不住想说点什么了...</p>
-        <p>1、于是赶紧打开编辑器，要不就先引入一张图片，就熟练的敲上了img，然后npm run dev，正常，weex preview，正常，哇，binggo，又拿起手机用Weexplayground扫了一下，纳尼我的图呢图呢</p>
+        <p>1、于是赶紧打开编辑器，要不就先引入一张图片，就熟练的敲上了img，然后npm run dev，正常，weex preview，正常，哇，binggo，又拿起手机用Weexplayground扫了一下，纳尼我的图呢图呢，然后用xcode跑了一下，当然也是不显示图的。</p>
+        <p>2、其实开发过rn或者小程序的都知道需要用内置组件标签等，那就用weex提供的image组件吧，和预期一样，三端统一了。那常用的slider组件呢，web竟然不仅展示出来，滑动等功能也都正常。然后大家可能就会想，这些组件是干什么的呢，为什么web也能正常运行呢。其实官方也有解释的。</p>
+        <blockquote>
+          <p>在上面的例子中，&lt;div&gt; 和 &lt;text\&gt; 在移动端上渲染出来的都是原生组件，而不是 HTMLElement。</p>
+          <p>在框架内部，Weex 使用的是原生系统提供的 Widget 来渲染的。</p>
+        </blockquote>
+        <p>3、接下来就是web为什么也能运行native的这些组件呢，然后去看了一下入口html，发现多了引了一个../node_modules/weex-vue-render/dist/index.js，也就是weex-vue-render模块提供了解析渲染等功能，有兴趣的可以去深入了解一下。</p>
+        <blockquote>
+          <p>在框架内部，Weex 使用的是原生系统提供的 Widget 来渲染的。尽管 Weex 强调每个跨平台的一致性，但我们仍然接受平台本身的行为和 UI 差异。 例如 switch 组件 在 Android 和 iOS 上看起来是不同的（在 Web 端的外观模拟了 iOS）</p>
+          <p>Weex 本身提供了很多内置组件和模块，也具备横向扩展的能力，允许开发者自行扩展和定制。需要注意的是，Weex 是一个跨平台的解决方案，扩展其内置组件或模块，需要在三端（Android、iOS、Web）中都有相应的实现。</p>
+        </blockquote>
+        <p>4、官方提供了不少组件，正如上述所说，这些组件也是有差异的，同时，也有扩展的功能，但是需要在三端都有相应的实现，是不是感觉掉进坑里面了。其实weex已经提供了不少的组件，虽然玫瑰带刺也不妨碍她的美，什么事都是相对的，相信大家能充分利用三端统一。</p>
+        <p>5、图1是用img标签显示空白，图二是slider组件，图三是list组件(<strong>需要注意的是在web端需要给list设置高度</strong>)</p>
+        <p></p>
         <div class="imgs">
-          <img src="../images/weeximg1.png" alt="" width="300px" style="float:left">
-          <img src="../images/weeximg2.png" alt="" width="300px" style="float:left">
+          <img src="../images/weeximg2.png" alt="" width="200px" style="float:left">
+          <img src="../images/weexslider.png" alt="" width="200px" style="float:left">
+          <img src="../images/weexlist.png" alt="" width="200px" style="float:left">
         </div>
 
 
