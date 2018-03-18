@@ -29,12 +29,6 @@
   <script src="../javascripts/html5shiv.min.js"></script>
   <script src="../javascripts/respond.min.js"></script>
   <![endif]-->
-  <style media="screen">
-    .imgs{
-      overflow: hidden;
-    }
-    .imgs img{margin-right: 4px;}
-  </style>
 </head>
 
 <body>
@@ -59,23 +53,23 @@
         <p>1、于是赶紧打开编辑器，新建一个.vue文件，要不就先引入一张图片，就熟练的敲上了img，然后npm run dev，正常，weex preview，正常，哇，binggo，又拿起手机用Weexplayground扫了一下，纳尼我的图呢图呢，然后用xcode跑了一下，当然也是不显示图的。</p>
         <p>2、其实开发过rn或者小程序的都知道需要用内置组件标签等，那就用weex提供的image组件吧，和预期一样，三端统一了。那常用的slider滚动图组件呢，web竟然不仅展示出来了，滑动等功能也都正常。然后大家可能就会想，这些组件是干什么的呢，为什么web也能正常运行呢。其实官方也有解释的。</p>
         <blockquote>
-          <p>在上面的例子中，&lt;div&gt; 和 &lt;text&gt; 在移动端上渲染出来的都是原生组件，而不是 HTMLElement。</p>
+          <p>&lt;div&gt; 和 &lt;text&gt; <strong>在app上渲染出来的都是原生组件，而不是 HTMLElement</strong>。</p>
           <p>在框架内部，Weex 使用的是原生系统提供的 Widget 来渲染的。</p>
         </blockquote>
-        <p>3、接下来就是web为什么也能运行native的这些组件呢，然后去看了一下入口html，发现多引了一个../node_modules/weex-vue-render/dist/index.js，也就是<strong> weex-vue-render </strong>模块提供了解析渲染等功能，有兴趣的可以去深入了解一下。</p>
+        <p>3、接下来就是web为什么也能运行native的这些组件呢，然后去看了一下入口index.html，发现多引了一个../node_modules/weex-vue-render/dist/index.js，也就是<strong> weex-vue-render </strong>模块封装了这些组件，提供了渲染解析等功能，也就是在web端也同时实现了一套如文档<a href="https://weex.incubator.apache.org/cn/guide/extend-web-render.html">扩展HTML5的功能</a>，有兴趣的可以去深入了解一下这个js。</p>
         <blockquote>
           <p>在框架内部，Weex 使用的是原生系统提供的 Widget 来渲染的。尽管 Weex 强调每个跨平台的一致性，但我们仍然接受平台本身的行为和 UI 差异。 例如 switch 组件 在 Android 和 iOS 上看起来是不同的（在 Web 端的外观模拟了 iOS）</p>
           <p>Weex 本身提供了很多内置组件和模块，也具备横向扩展的能力，允许开发者自行扩展和定制。需要注意的是，Weex 是一个跨平台的解决方案，扩展其内置组件或模块，需要在三端（Android、iOS、Web）中都有相应的实现。</p>
         </blockquote>
-        <p>4、官方提供了不少组件，正如上述所说，这些组件也是有差异的，同时，也提供了扩展的功能，<strong>但是需要在三端都有相应的实现</strong>，是不是感觉掉进坑里面了，说好的三端统一呢，还需要我们自己实现，/(ㄒoㄒ)/~~。不过其实weex已经提供了不少的组件，并且三端也都实现了，如常用的slider、list、input等。我们的app新浪众测ios版已上线，现在正在开发安卓端，在安卓端运行起来的时候，app样式展示几乎一样，所要实现的就是那些差异的地方（欢迎看我下一篇文章）。最后虽然玫瑰带刺也不妨碍她的美，什么事都是相对的，相信大家都能充分利用这三端统一。</p>
-        <p>5、图1是用img标签显示空白，图二是slider组件，图三是list组件(<strong>需要注意的是在web端需要给list设置高度</strong>)</p>
+        <p>4、官方提供了不少组件，正如上述所说，这些组件也是有差异的，同时，也提供了扩展的功能，<strong>但是需要在三端都有相应的实现</strong>，是不是感觉掉进坑里面了，说好的三端统一呢，还需要我们自己实现，/(ㄒoㄒ)/~~。不过其实weex已经提供了不少的组件，并且三端也都实现了，如常用的slider、list、input等。我们的app新浪众测ios版已上线，现在正在开发安卓端，在安卓端运行起来的时候，app样式展示几乎一样，所要实现的就是那些自己封装的模块还有其它等有差异的地方（欢迎看我下一篇文章）。最后虽然玫瑰带刺但也不妨碍她的美，什么事都是相对的，相信大家能充分利用好这个三端统一事半功倍。</p>
+        <p>5、图1是用img标签显示空白，图二是slider组件，图三是list组件(<strong>需要注意的是官方提供的demo，在web端需要给list设置高度这样他才能滚动</strong>)</p>
         <p></p>
         <div class="imgs">
-          <img src="../images/weeximg2.png" alt="" width="200px" style="float:left">
-          <img src="../images/weexslider.png" alt="" width="200px" style="float:left">
-          <img src="../images/weexlist.png" alt="" width="200px" style="float:left">
+          <img src="../images/weeximg2.png" alt="">
+          <img src="../images/weexslider.png" alt="">
+          <img src="../images/weexlist.png" alt="">
         </div>
-        <h3>最后的最后，欢迎大家下载我们的app，新浪众测ios版，安卓端敬请期待，免费体验一把weex。第一次写博客，多有不足，欢迎大家指出一起交流学习，感谢~。</h3>
+        <h3>最后的最后，欢迎大家下载我们的app，<a href="https://itunes.apple.com/us/app/%E6%96%B0%E6%B5%AA%E4%BC%97%E6%B5%8B/id1309407290?l=zh&amp;ls=1&amp;mt=8">新浪众测ios版</a>，安卓端敬请期待，免费体验一把weex。第一次写博客，多有不足，欢迎大家在<a href="">我的微博</a>指出一起交流学习，如果可以的话去点个赞也是可以的啊<a href="">@sakuracld</a>，感谢~。</h3>
         <p><img src="http://zhongce.sina.com.cn/static/images/app/iosQR.png?v=1.0" alt=""></p>
 
       </div><!-- /.blog-post -->
@@ -83,7 +77,7 @@
     <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
       <div class="sidebar-module sidebar-module-inset">
         <h4>About</h4>
-        <p>一个致力于在前端搬砖的女汉纸@sakuracld</p>
+        <p>一个默默在前端搬砖的女汉纸@sakuracld</p>
       </div>
       <div class="sidebar-module">
         <h4>Archives</h4>

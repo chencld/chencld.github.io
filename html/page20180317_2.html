@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Blog of cld</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../stylesheets/bootstrap.min.css" rel="stylesheet">
+
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <link href="../stylesheets/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../stylesheets/blog.css" rel="stylesheet">
+
+  <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+  <!--[if lt IE 9]><script src="../javascripts/ie8-responsive-file-warning.js"></script><![endif]-->
+  <script src="../javascripts/ie-emulation-modes-warning.js"></script>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="../javascripts/html5shiv.min.js"></script>
+  <script src="../javascripts/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+<div class="blog-masthead"></div>
+
+<div class="container">
+
+  <div class="blog-header">
+    <h1 class="blog-title">cld's notes</h1>
+    <p class="lead blog-description">{每天进步一点点}</p>
+  </div>
+
+  <div class="row">
+
+    <div class="col-sm-8 blog-main">
+
+      <div class="blog-post">
+        <h2 class="blog-post-title">Weex与原生底部tab的那些事</h2>
+        <p class="blog-post-meta">March 18, 2018 by <a href="javascript:;">cld</a></p>
+        <p>weex的上层语言，大家用的最多的可能就是vue了，而vue大家写的最多的可能也是单页spa模式，当然weex也提供了vue全家桶那一系列，你可以用vue写底部tab，router路由。但是native端完全没必要啊，原生本就有视图前进后退等操作，weex也已封装了navigator模块，而且首次完全没必要加载所有文件。</p>
+        <p>然后大家可能就会说，那底部tab用什么写，你让我写oc，你让我写java，nonono，你让我一个前端干这个，说实话，我也很抓狂，最后真的很感谢公司native开发的同事，感谢他们能抽空指导帮助我们，真的特别感谢O(∩_∩)O~~~我已封装好一个简单的带有原生tab的<a href="">weex ios项目</a>，如果能帮到你的话，麻烦去<a href="">我的微博</a>留个爱心呗~。</p>
+        <div class="imgs">
+          <img src="../images/weextabbar.png" alt="">
+        </div>
+        <p>现在看起来当初其实也没有必要太无语，其实就是心里在默默说我只是一个写js的，我肯定不行，这怎么可能，其实上网一搜很多原生这块的代码。<strong>weex脚手架初始化的ios项目里面，可以看到在WeexSDKManager.m加载了js，也就是入口，在这里面做手脚就行了。</strong></p>
+        <p>最后大家发现我一直说的都是ios，那安卓呢，安卓要稍微麻烦些，不过原理也类似，用的是fragment加载的js，后续有时间如果有必要我会更新在git上。还需要提醒大家的一点是，安卓封装的navigator，在WXPageActivity.java如下图需要自己把url路径传过去，这样你才能在vue里面获取到bundleUrl，如果你的url里面带的有参数的话，这就很重要了，希望能帮到你~。</p>
+        <div class="imgs">
+          <img src="../images/weexpath.png" style="width:98%;" alt="">
+        </div>
+        <h3>最后的最后，欢迎大家下载我们的app，<a href="https://itunes.apple.com/us/app/%E6%96%B0%E6%B5%AA%E4%BC%97%E6%B5%8B/id1309407290?l=zh&amp;ls=1&amp;mt=8">新浪众测ios版</a>，安卓端敬请期待，免费体验一把weex。第一次写博客，多有不足，欢迎大家在<a href="">我的微博</a>指出一起交流学习，如果可以的话去点个赞也是可以的啊<a href="">@sakuracld</a>，感谢~。</h3>
+      </div><!-- /.blog-post -->
+    </div><!-- /.blog-main -->
+    <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+      <div class="sidebar-module sidebar-module-inset">
+        <h4>About</h4>
+        <p>一个默默在前端搬砖的女汉纸@sakuracld</p>
+      </div>
+      <div class="sidebar-module">
+        <h4>Archives</h4>
+        <ol class="list-unstyled">
+          <li><a href="http://chencld.github.io/">March 2018</a></li>
+        </ol>
+      </div>
+      <!-- <div class="sidebar-module">
+        <h4>Elsewhere</h4>
+        <ol class="list-unstyled">
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Facebook</a></li>
+        </ol>
+      </div> -->
+    </div><!-- /.blog-sidebar -->
+
+  </div><!-- /.row -->
+
+</div><!-- /.container -->
+
+<footer class="blog-footer">
+  <p>Copyright © 2018<a href="javascript:;">cld</a></p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="../javascripts/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../javascripts/vendor/jquery.min.js"><\/script>')</script>
+<script src="../javascripts/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../javascripts/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
