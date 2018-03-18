@@ -164,3 +164,20 @@ h6, .h6 {
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
+
+/*
+ * add
+ */
+.imgs{
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 20px 0;
+}
+.imgs img{
+  width: 48%;
+}
