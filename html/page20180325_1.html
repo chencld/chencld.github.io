@@ -64,6 +64,23 @@
           <li>浏览器根据下载接收到的HTML文件解析结构建立DOM（Document ObjectModel，文档对象模型）文档树，并根据HTML中的标记请求下载指定的MIME类型文件（如CSS、JavaScript脚本等），同时设置缓存等内容。</li>
           <li>页面开始解析渲染DOM，CSS根据规则解析并结合DOM文档树进行网页内容布局和绘制渲染，JavaScript根据DOM API操作DOM，并读取浏览器缓存、执行事件绑定等，页面整个展示过程完成。</li>
         </ul>
+        <p>浏览器主要由七部分组成：用户界面、网络、JavaScript引擎、渲染引擎、UI后端、JavaScript解释器和持久化数据存储。</p>
+        <ul>
+          <li>用户界面包括浏览器中可见的地址输入框、浏览器前进返回按钮、打开书签、打开历史记录等用户可操作的功能选项。</li>
+          <li>网络功能模块则是浏览器开启网络线程发送请求或下载资源文件的模块，例如DOM树解析过程中请求静态资源首先是通过浏览器中的网络模块发起的</li>
+          <li>浏览器引擎可以在用户界面和渲染引擎之间传送指令或在客户端本地缓存中读写数据等，是浏览器中各个部分之间相互通信的核心。浏览器渲染引擎的功能是解析DOM文档和CSS规则并将内容排版到浏览器中显示有样式的界面，我们常说的浏览器内核主要指的就是渲染引擎。</li>
+          <li>UI后端则用于绘制基本的浏览器窗口内控件，比如组合选择框、按钮、输入框等。</li>
+          <li>JavaScript解释器则是浏览器解释和执行JavaScript脚本的部分，例如V8引擎。</li>
+          <li>浏览器数据持久化存储则涉及cookie、localStorage等一些客户端存储技术，可以通过浏览器引擎提供的API进行调用。</li>
+        </ul>
+        <p>常见的浏览器内核</p>
+        <ul>
+          <li>Trident内核：IE、360浏览器、搜狗浏览器等</li>
+          <li>Gecko内核：Netscape6及以上版本、Firefox、SeaMonkey等；</li>
+          <li>Webkit内核：Safari、Chrome；</li>
+          <li>Blink内核：Webkit一个分支，优化了一些新特性，移动端较多浏览器采用该内核。 <br>
+          <img src="http://img.blog.csdn.net/20170724205205561?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGlnYW5nMjU4NTExNg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="浏览器组成结构" title=""></li>
+        </ul>
         <h3>博客还不太完善，多有不足，欢迎大家在<a href="https://m.weibo.cn/status/4219015872734256?wm=3333_2001&sourcetype=weixin&featurecode=newtitle&from=singlemessage&isappinstalled=0">我的微博</a>指出一起交流学习，如果可以的话去点个赞也是很开心的<a href="">@sakuracld</a>，你们的鼓励是我坚持下去的动力，感谢~。</h3>
 
       </div><!-- /.blog-post -->
