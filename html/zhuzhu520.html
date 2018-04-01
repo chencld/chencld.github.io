@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Draw Heart</title>
+
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      height: 100%;
+      background-color: black;
+    }
+    #canvasZone {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      background-color: black;
+    }
+    h2{
+      position: absolute;
+      width: 100px;
+      top: 200px;
+      left: 50%;
+      margin-left: -60px;
+      line-height: 50px;
+      color: #f296a7;
+    }
+    #myCanvas {
+      display: block;
+      margin:0 auto;
+      /*background-color:aqua;*/
+    }
+    #showVideo{display: none;}
+    #flower{display: none;}
+  </style>
+</head>
+
+<body>
+
+  <div id="canvasZone">
+    <canvas id="myCanvas"></canvas>
+    <h2 id="showTxt"></h2>
+    <div id="showVideo"></video>
+    </div>
+  </div>
+
+  <img src="../images/flower.png" alt="" id="flower">
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",function(){
+      draw();
+    })
+    function getId(str){
+      return document.getElementById(str);
+    }
+    function draw(){
+        var canvasZone=getId("canvasZone"),
+            drawing = getId("myCanvas"),
+            msg = getId("showTxt"),
+            vid = getId("showVideo")
+            pic = getId('flower'); //获取描边图片
+
+         drawing.width = '520';
+         drawing.height = '520';
+        if (drawing.getContext){
+            var content = drawing.getContext("2d"),
+                radian = 0,
+                radian_add = Math.PI/40;
+            content.translate(235,200);
+            function heart(){
+                X = getX1(radian);
+                Y = getY1(radian);
+                content.drawImage(pic,X,Y,25,25);   //在给定坐标绘制给定大小的图片
+                radian+=radian_add;
+                if (radian > (2*Math.PI)){ //绘制完整的心型线后取消间歇调用
+                    clearInterval(intervalId);
+                    msg.innerHTML="click me";
+
+                    canvasZone.addEventListener("click",function(){
+                      vid.innerHTML='<video width="320" height="240" autoplay><source src="../images/zhu.mp4" type="video/mp4"></video>'
+                      vid.style.display="block"
+                    })
+                }
+            }
+            intervalId = setInterval(heart,100);  //设置间歇调用，间隔为100ms
+        }
+    }
+    function getX(t){   //获取玫瑰线的X坐标
+        return 100 * Math.sin(4*t)*Math.cos(t);
+    }
+
+    function getY(t){  //获取玫瑰线的Y坐标
+        return 100 * Math.sin(4*t)*Math.sin(t);
+    }
+
+    function getX1(t){  //获取心型线的X坐标
+        return 15*(16*Math.pow(Math.sin(t),3))
+    }
+
+    function getY1(t){  //获取心型线的Y坐标
+        return -15*(13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t))
+    }
+  </script>
+</body>
+
+</html>
