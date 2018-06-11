@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <meta name="google-site-verification" content="qAMW3BKAH7Mv7lYsTj7bSDU-YzqBNVo_oRdnk4WZ28U" />
+  <meta name="keywords" content="weex,安卓端页面跳转,native,weex和native,weex安卓bundleurl,ios,android,weex navigator,cld,sakuracld,前端开发,web,weex入门,Weex开发流程,Weex原理,三端统一">
+  <meta name="description" content="weex,安卓端页面跳转,原生底部tab,native,weex和native,weex安卓bundleurl,ios,android,weex navigator,cld,sakuracld,前端开发,web,weex入门,Weex开发流程,Weex原理,三端统一">
+  <meta name="author" content="cld">
+
+  <title>Blog of cld</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../stylesheets/bootstrap.min.css" rel="stylesheet">
+
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <link href="../stylesheets/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../stylesheets/blog.css" rel="stylesheet">
+
+  <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+  <!--[if lt IE 9]><script src="../javascripts/ie8-responsive-file-warning.js"></script><![endif]-->
+  <script src="../javascripts/ie-emulation-modes-warning.js"></script>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="../javascripts/html5shiv.min.js"></script>
+  <script src="../javascripts/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+<div class="blog-masthead"></div>
+
+<div class="container">
+
+  <div class="blog-header">
+    <h1 class="blog-title">cld's notes</h1>
+    <p class="lead blog-description">{每天进步一点点}</p>
+  </div>
+
+  <div class="row">
+
+    <div class="col-sm-8 blog-main">
+
+      <div class="blog-post">
+        <h2 class="blog-post-title">weex安卓端页面跳转</h2>
+        <p class="blog-post-meta">June 11, 2018 by <a href="javascript:;">cld</a></p>
+        <h3>weex在安卓端的跳转坑真的是不少，安卓端上线没几天，趁着记忆还比较新鲜，总结总结下咯。</h3>
+        <p>ios端还好点，安卓端相信大家也是遇到不少坑吧，开始自己的踩坑记。。。</p>
+        <h3>1、页面跳转传参</h3>
+        <p>一样的写法，为什么ios能拿到参数，安卓就是不行，欲哭无泪。</p>
+        <p>安卓开发的过程中，肯定对mWXSDKInstance非常熟悉，到处都有他的身影，对也就是他的render方法，需要在render中手动传上参数，如图：</p>
+        <div class="imgs">
+            <img src="../images/filepath1.png" alt="">
+        </div>
+        <p>getPath和getUrl的方法，weex初始化的项目demo里面就有，就不多说了。</p>
+        <h3>2、ios和安卓路径统一</h3>
+        <p>如图，结合网上各种写法总结了一下，安卓的路径其实就是写死的，对与../的见上一张图，需要自己整理一下。</p>
+        <div class="imgs">
+            <img src="../images/filepath2.png" alt="">
+        </div>
+        <h3>3、webview跳转</h3>
+        <p>这个还好说，网上一搜很多安卓webview跳转，核心都是shouldOverrideUrlLoading这个方法，唯一需要提醒一点的就是重定向。</p>
+        <h3>3、web呼起拦截</h3>
+        <p>这个其实和上面很像，就看你在哪个activity做拦截。最后也就是intent-filter做过滤拦截，加上<category android:name="android.intent.category.BROWSABLE" />这个还是好一些</p>
+        <h3>最后还要提一点的是，拦截的时候会和weexplayground app相撞，只需要重写navigator就行了，找到navigator的源码，然后按照封装module
+            的方法再封装一下就可以了
+        </h3>
+        <h3>今天就先到这里，博客还不太完善，多有不足，欢迎大家在<a href="https://weibo.com/2667547537/profile?rightmod=1&wvr=6&mod=personnumber&is_all=1">我的微博</a>指出一起交流学习，如果可以的话去点个赞也是很开心的<a href="">@sakuracld</a>，你们的鼓励是我坚持下去的动力，感谢~。</h3>
+
+      </div><!-- /.blog-post -->
+    </div><!-- /.blog-main -->
+    <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+      <div class="sidebar-module sidebar-module-inset">
+        <h4>About</h4>
+        <p>一个默默在前端搬砖的女汉纸@sakuracld</p>
+      </div>
+      <div class="sidebar-module">
+        <h4>Archives</h4>
+        <ol class="list-unstyled">
+          <li><a href="http://chencld.github.io/">March 2018</a></li>
+        </ol>
+      </div>
+      <!-- <div class="sidebar-module">
+        <h4>Elsewhere</h4>
+        <ol class="list-unstyled">
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Facebook</a></li>
+        </ol>
+      </div> -->
+    </div><!-- /.blog-sidebar -->
+
+  </div><!-- /.row -->
+
+</div><!-- /.container -->
+
+<footer class="blog-footer">
+  <p>Copyright © 2018<a href="javascript:;">cld</a></p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="../javascripts/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../javascripts/vendor/jquery.min.js"><\/script>')</script>
+<script src="../javascripts/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../javascripts/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
