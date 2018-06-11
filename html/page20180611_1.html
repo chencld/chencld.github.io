@@ -69,7 +69,7 @@
         <p>这个还好说，网上一搜很多安卓webview跳转，核心都是shouldOverrideUrlLoading这个方法，唯一需要提醒一点的就是重定向。</p>
         <h3>4、web呼起拦截</h3>
         <p>这个其实和上面很像，就看你在哪个activity做拦截。最后也就是intent-filter做过滤拦截，加上<category android:name="android.intent.category.BROWSABLE" />这个还是好一些</p>
-        <h3>最后还要提一点的是，拦截的时候会和weexplayground app相撞，只需要重写navigator就行了，找到navigator的源码，然后按照封装module
+        <h3>5、最后还要提一点的是，拦截的时候会和weexplayground app相撞，只需要重写navigator就行了，找到navigator的源码，然后按照封装module
             的方法再封装一下就可以了
         </h3>
          <br />
