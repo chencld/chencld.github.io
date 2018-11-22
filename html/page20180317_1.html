@@ -61,6 +61,7 @@
         <p>3、接下来就是web为什么也能运行native的这些组件呢，然后去看了一下入口index.html，发现多引了一个../node_modules/weex-vue-render/dist/index.js，也就是<strong> weex-vue-render </strong>模块封装了这些组件，提供了渲染解析等功能，也就是在web端也同时实现了一套如文档<a href="https://weex.incubator.apache.org/cn/guide/extend-web-render.html">扩展HTML5的功能</a>，有兴趣的可以去深入了解一下这个js。</p>
         <div class="imgs">
           <img src="../images/weexcomponent.png" alt="">
+          <img src="../images/spapp.gif" alt="" style="display:none;">
         </div>
         <blockquote>
           <p>在框架内部，Weex 使用的是原生系统提供的 Widget 来渲染的。尽管 Weex 强调每个跨平台的一致性，但我们仍然接受平台本身的行为和 UI 差异。 例如 switch 组件 在 Android 和 iOS 上看起来是不同的（在 Web 端的外观模拟了 iOS）</p>
